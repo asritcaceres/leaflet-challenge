@@ -96,6 +96,37 @@ function createMap(earthquakes) {
     zoom: 5,
     layers: [lightmap, earthquakes],
 
-  })
+  });
+
+  function getColor(d){
+    return d < 1  ? "green" :
+           d < 2  ? "yellow" :
+           d < 3 ? "orange" :
+           d < 4 ? "red" :
+           d < 5 ? "darkred" :
+                   "black" ;
+
+  }
+
+  //adding legend
+  var legend = L.control({position: 'bottomright'});
+
+  legend.onAdd = function (map) {
+
+      var div = L.DomUtil.create('div', 'info legend'),
+          magnitude = [0, 1, 2, 3, 4, 5];
+
+          div.innerHTML += "Magnitudes <br>"
+      // loop through our density intervals and generate a label with a colored square for each interval
+      for (var i = 0; i < magnitude.length; i++) {
+          div.innerHTML +=
+              '<i style="background:' + getColor(magnitude[i]) +  '">&nbsp&nbsp&nbsp&nbsp</i> ' +
+              magnitude[i] + (magnitude[i + 1] ? '&ndash;' + magnitude[i + 1] + '<br>' : '+');
+      }
+
+      return div;
+  };
+
+  legend.addTo(myMap);
 }
   
