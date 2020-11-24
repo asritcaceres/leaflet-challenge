@@ -6,3 +6,5 @@
 ##### Once the layer was created for the features of the array I was about to create the map using mapbox. My API key is in a config.js file that is hidden on github. I created a light map as the base and used the information from the variable earthquakes (the features of the array) as the overlay of the map.
 
 ##### Now that the map was generated I needed to add the legend. I used the getColor function to add the colors for the labels that would be needed. I found the syntax in the documentation for Leaflet and used that to position the legend on the bottom right and use a for loop to match the magnitude to the colors it would be associated with based on its strength and then added this to the map.
+
+![alt text](https://github.com/asritcaceres/leaflet-challenge/blob/main/Leaflet-Step-1/static/images/earthquake_map.PNG?raw=true)
